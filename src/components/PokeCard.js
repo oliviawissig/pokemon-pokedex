@@ -7,7 +7,9 @@ import animationData from '../assets/poke-load.json';
 function PokeCard({pokemon}) {
     const [currentPokemon, setCurrentPokemon] = useState(pokemon.url);
     const [sprite, setSprite] = useState("");
-    const [type, setType] = useState("");
+    const [type1, setType1] = useState("");
+    const [type2, setType2] = useState("");
+    const [id, setID] = useState(0);
     const [loading, setLoading] = useState(true);
 
     const defaultOptions = {
@@ -28,8 +30,10 @@ function PokeCard({pokemon}) {
             cancelToken : call1.token
         }).then(res => {
             setSprite(res.data.sprites.other["official-artwork"].front_default);
+            setID(res.data.id);
             setLoading(false);
-            setType(res.data.types[0].type.name);
+            setType1(res.data.types[0].type.name);
+            setType2(res.data.types[1].type.name);
         }).catch(function(thrown){
             if (axios.isCancel(thrown))
                 console.log("First request canceled", thrown.message);
@@ -39,13 +43,18 @@ function PokeCard({pokemon}) {
     }, [currentPokemon])
 
     return ( 
-        <div key={pokemon.name} className={"poke-card " + type}>
-            <h3>{pokemon.name}</h3>
-            <p>{type}</p>
+        <div key={pokemon.name} className="poke-card">
             <div className="poke-pic">
                 {loading ? <Lottie options={defaultOptions} height={30} width={30} /> : <img src={sprite} className="poke-sprite" alt={pokemon.name}/>}
             </div>
-            <p></p>
+            <div className="poke-desc">
+                <h4>{id}</h4>
+                <h3>{pokemon.name}</h3>
+                <div className='type-container'>
+                    <div className={"poke-type " + type1}>{type1}</div>
+                    <div className={"poke-type " + type2}>{type2}</div>
+                </div>
+            </div>
         </div>
      );
 }
