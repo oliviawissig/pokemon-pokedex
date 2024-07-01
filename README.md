@@ -1,5 +1,5 @@
 # Olivia's Pokédex
-[pokemon-pokedex](https://oliviawissig.com/)
+[pokemon-pokedex](https://pokedex.oliviawissig.com/)
 
 ### Overview
 A website created from scratch that <sup>mostly</sup> recreates Pokémon's current [Pokédex page](https://www.pokemon.com/us/pokedex). I created this project to showcase my ability to use RESTful APIs, like [PokéAPI](https://pokeapi.co/), and my pixel-perfect accuracy. 
