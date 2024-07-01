@@ -1,10 +1,5 @@
 .poke-list{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap:10px 10px;
-    width:50vw;
+    width:70vw;
 }
 
 .pagination{
@@ -14,13 +9,4 @@
     width:40vw;
     margin:auto;
     margin-bottom:70px;
-}
-
-.content{
-    width:50vw;
-    background: #fff url(https://assets.pokemon.com/static2/_ui/img/chrome/content_bg.png) left top;
-    display: block;
-    margin: 0 auto;
-    overflow: hidden;
-    padding:23px;
 }
